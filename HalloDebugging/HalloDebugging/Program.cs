@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +33,13 @@ namespace HalloDebugging
                 // Breakpoint-Fenster Debug > Windows > Breakpoints
                 // Breakpoints sind Exportier- und Importierbar
                 Console.WriteLine(i);
+
+                // Breakpoint im Code
+                // if (i == 50)
+                //    Debugger.Break();
+
+                if (i == 80)
+                    throw new DivideByZeroException();
             }
             Console.WriteLine("ABCDE");
 
