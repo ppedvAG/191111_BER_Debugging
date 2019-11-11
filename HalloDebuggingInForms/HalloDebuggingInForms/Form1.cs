@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +16,16 @@ namespace HalloDebuggingInForms
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 500; i++)
+            {
+                Thread.Sleep(150);
+                if (i == 499)
+                    throw new DivideByZeroException();
+            }
         }
     }
 }
