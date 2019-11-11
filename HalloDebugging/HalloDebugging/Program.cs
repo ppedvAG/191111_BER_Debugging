@@ -109,10 +109,16 @@ namespace HalloDebugging
             #endregion
 
             Console.WriteLine("Hallo Trace");
+            // Konfigurieren von Trace:
+            // Windows-Eventlog:
+             Trace.Listeners.Add(new EventLogTraceListener("Application"));
+            // Textdatei:
+            Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+            Trace.AutoFlush = true; // Damit sofort in die Textdatei geschrieben wird
 
             for (int i = 0; i < 100; i++)
             {
-                Thread.Sleep(150);
+                Thread.Sleep(500);
                 Console.WriteLine($"Der aktuelle Wert ist {i}");
                 Trace.WriteLine("Wert aus Trace.WriteLine:" + i);
             }

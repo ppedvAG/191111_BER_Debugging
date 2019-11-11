@@ -7,3 +7,6 @@ https://github.com/microsoft/referencesource
 .NET Framework Decompiler:
 https://github.com/icsharpcode/ILSpy#ilspy-------
 
+Sysinternals -> Werkzeugsammlung für Windows und Entwickler
+https://docs.microsoft.com/en-us/sysinternals/
+
