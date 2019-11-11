@@ -56,7 +56,7 @@ namespace HalloDebugging
 
             //// .pdb - Datei:
             //// Wird bei jedem kompilieren erstellt und beinhaltet Informationen über die aktuelle Anwendung
-            
+
             //// Mit .pdb: Callstack + Zeilennummer + Codefenster in VisualStudio beim Remote-Debugger
             //// Ohne .pdb: Callstack
             //// => pdb-Dateien auf einem Symbolserver (z.B. im eigenen TFS) hochladen
@@ -70,42 +70,52 @@ namespace HalloDebugging
 
             #endregion
 
-            Console.WriteLine("Hallo Debugger");
+            #region Kompiler-Konstanten
+            //            Console.WriteLine("Hallo Debugger");
 
-#if DEBUG
-            Console.WriteLine("Nur im Debug-Modus sichtbar");
-#endif
+            //#if DEBUG
+            //            Console.WriteLine("Nur im Debug-Modus sichtbar");
+            //#endif
 
 
-            // Für Release: in den Optionen im Bereich "Build" den Namen der Konstante im Textfeld eintragen !!!!! 
-#if RELEASE
-            Console.WriteLine("Nur im Release-Modus sichtbar");
-#endif
+            //            // Für Release: in den Optionen im Bereich "Build" den Namen der Konstante im Textfeld eintragen !!!!! 
+            //#if RELEASE
+            //            Console.WriteLine("Nur im Release-Modus sichtbar");
+            //#endif
 
-#if KÄSE
-            Console.WriteLine("Käse");
-#endif 
+            //#if KÄSE
+            //            Console.WriteLine("Käse");
+            //#endif 
 
-            int zahl1 = 12;
-            int zahl2 = 15;
+            //            int zahl1 = 12;
+            //            int zahl2 = 15;
+
+            //            for (int i = 0; i < 100; i++)
+            //            {
+            //                zahl1 = zahl2 * i;
+            //                BerechneEtwas(zahl1);
+            //            }
+
+            //            // https://www.tutorialspoint.com/csharp/csharp_unsafe_codes.htm
+            //            unsafe // Sprachfeatures, die man aus C/ C++ kennt
+            //            {
+            //                // Pointer/Referenzen
+
+            //                int zahl10 = 42;
+            //                int* zahl15 = &zahl10;
+
+            //                // Bei Schleifen Pointer-Arithmetik usw...
+            //            }
+            #endregion
+
+            Console.WriteLine("Hallo Trace");
 
             for (int i = 0; i < 100; i++)
             {
-                zahl1 = zahl2 * i;
-                BerechneEtwas(zahl1);
+                Thread.Sleep(150);
+                Console.WriteLine($"Der aktuelle Wert ist {i}");
+                Trace.WriteLine("Wert aus Trace.WriteLine:" + i);
             }
-
-            // https://www.tutorialspoint.com/csharp/csharp_unsafe_codes.htm
-            unsafe // Sprachfeatures, die man aus C/ C++ kennt
-            {
-                // Pointer/Referenzen
-
-                int zahl10 = 42;
-                int* zahl15 = &zahl10;
-
-                // Bei Schleifen Pointer-Arithmetik usw...
-            }
-
 
             Console.ReadKey();
         }
