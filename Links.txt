@@ -4,3 +4,6 @@ https://referencesource.microsoft.com/
 Quellcode auf GitHub:
 https://github.com/microsoft/referencesource
 
+.NET Framework Decompiler:
+https://github.com/icsharpcode/ILSpy#ilspy-------
+
