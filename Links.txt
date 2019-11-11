@@ -1,0 +1,6 @@
+Quellcode vom .NET Framework:
+https://referencesource.microsoft.com/
+
+Quellcode auf GitHub:
+https://github.com/microsoft/referencesource
+

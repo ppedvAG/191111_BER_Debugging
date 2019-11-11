@@ -60,6 +60,11 @@ namespace HalloDebugging
             // => pdb-Dateien auf einem Symbolserver (z.B. im eigenen TFS) hochladen
             MachEtwasKapput1();
 
+            // .NET Framework - Debugging:
+            // https://referencesource.microsoft.com/
+
+            // Falls beim Debuging von z.B. "Console.WriteLine" die Datei "console.cs" angefordert wird:
+            // von "referencesource.microsoft.com" die datei "console.cs" herunterladen und abspeichern
 
             Console.ReadKey();
         }
