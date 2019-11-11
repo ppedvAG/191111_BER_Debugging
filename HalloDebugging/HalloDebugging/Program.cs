@@ -111,10 +111,15 @@ namespace HalloDebugging
             Console.WriteLine("Hallo Trace");
             // Konfigurieren von Trace:
             // Windows-Eventlog:
-             Trace.Listeners.Add(new EventLogTraceListener("Application"));
+            // Trace.Listeners.Add(new EventLogTraceListener("Application"));
             // Textdatei:
-            Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
-            Trace.AutoFlush = true; // Damit sofort in die Textdatei geschrieben wird
+            // Trace.Listeners.Add(new TextWriterTraceListener("log.txt"));
+
+            // Trace.AutoFlush = true; // Damit sofort in die Textdatei geschrieben wird
+
+            // Trace in Datei per app.config aktivieren:
+            // https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.defaulttracelistener?view=netframework-4.8
+            // XML Part ganz unten in die app.config - Datei hineinkopieren
 
             for (int i = 0; i < 100; i++)
             {

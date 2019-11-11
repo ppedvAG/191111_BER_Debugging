@@ -10,3 +10,6 @@ https://github.com/icsharpcode/ILSpy#ilspy-------
 Sysinternals -> Werkzeugsammlung für Windows und Entwickler
 https://docs.microsoft.com/en-us/sysinternals/
 
+Trace in eine Logdatei mithilfe von App.Config:
+ https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.defaulttracelistener?view=netframework-4.8
+
