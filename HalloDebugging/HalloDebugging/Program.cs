@@ -95,6 +95,18 @@ namespace HalloDebugging
                 BerechneEtwas(zahl1);
             }
 
+            // https://www.tutorialspoint.com/csharp/csharp_unsafe_codes.htm
+            unsafe // Sprachfeatures, die man aus C/ C++ kennt
+            {
+                // Pointer/Referenzen
+
+                int zahl10 = 42;
+                int* zahl15 = &zahl10;
+
+                // Bei Schleifen Pointer-Arithmetik usw...
+            }
+
+
             Console.ReadKey();
         }
 
