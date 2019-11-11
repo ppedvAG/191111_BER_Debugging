@@ -123,6 +123,8 @@ namespace HalloDebugging
 
             for (int i = 0; i < 1000; i++)
             {
+                if (i == 200)
+                    Debugger.Break();
                 Thread.Sleep(500);
                 Console.WriteLine($"Der aktuelle Wert ist {i}");
                 Trace.WriteLine("Wert aus Trace.WriteLine:" + i);
