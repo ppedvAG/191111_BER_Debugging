@@ -23,10 +23,24 @@ namespace HalloDebugging
 
             for (int i = 0; i < 100; i++)
             {
+                // Breakpoints mit Condition: Rechtsklick auf Breakpoint -> Condition
+                // Features:
+                // Breakpoint mit Condition (z.B. i == 99)
+                // Breakpoint nach z.B. 10 Aufrufen ( = und >=)
+                // Breakpoint bei z.B. jedem 3ten Aufruf (Multiple of)
+                
+                // Breakpoint-Fenster Debug > Windows > Breakpoints
+                // Breakpoints sind Exportier- und Importierbar
                 Console.WriteLine(i);
             }
+            Console.WriteLine("ABCDE");
+
 
             Console.WriteLine("---ENDE---");
+
+            Console.WriteLine("ZYX");
+
+
             Console.ReadKey();
         }
 
