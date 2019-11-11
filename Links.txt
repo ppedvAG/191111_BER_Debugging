@@ -13,3 +13,13 @@ https://docs.microsoft.com/en-us/sysinternals/
 Trace in eine Logdatei mithilfe von App.Config:
  https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.defaulttracelistener?view=netframework-4.8
 
+Analysieren von Bluescreens:
+1) Bluescreen erstellen (notmyfault aus sysinternals)
+// 2) Windows 10 SDK installieren
+//	NUR "Debugging Tools for Windows" installieren
+
+2) Aus dem Store WinDbg (Preview) -> Dumpfiles einlesen und analysieren lassen (Bei Bluescreens)
+
+Remote-Debugger:
+1) RemoteTools für die richtige VisualStudio-Installation installieren
+https://visualstudio.microsoft.com/de/downloads/?rr=https%3A%2F%2Fdocs.microsoft.com%2Fde-de

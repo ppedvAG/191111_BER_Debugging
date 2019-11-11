@@ -121,7 +121,7 @@ namespace HalloDebugging
             // https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.defaulttracelistener?view=netframework-4.8
             // XML Part ganz unten in die app.config - Datei hineinkopieren
 
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 1000; i++)
             {
                 Thread.Sleep(500);
                 Console.WriteLine($"Der aktuelle Wert ist {i}");
