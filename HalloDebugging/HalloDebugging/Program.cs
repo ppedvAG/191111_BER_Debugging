@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace HalloDebugging
@@ -29,17 +30,19 @@ namespace HalloDebugging
                 // Breakpoint mit Condition (z.B. i == 99)
                 // Breakpoint nach z.B. 10 Aufrufen ( = und >=)
                 // Breakpoint bei z.B. jedem 3ten Aufruf (Multiple of)
-                
+
                 // Breakpoint-Fenster Debug > Windows > Breakpoints
                 // Breakpoints sind Exportier- und Importierbar
+
+                Thread.Sleep(150);
                 Console.WriteLine(i);
 
                 // Breakpoint im Code
                 // if (i == 50)
                 //    Debugger.Break();
 
-                if (i == 80)
-                    throw new DivideByZeroException();
+                //if (i == 80)
+                //    throw new DivideByZeroException();
             }
             Console.WriteLine("ABCDE");
 
@@ -49,7 +52,26 @@ namespace HalloDebugging
             Console.WriteLine("ZYX");
 
 
+            // .pdb - Datei:
+            // Wird bei jedem kompilieren erstellt und beinhaltet Informationen über die aktuelle Anwendung
+            
+            // Mit .pdb: Callstack + Zeilennummer + Codefenster in VisualStudio beim Remote-Debugger
+            // Ohne .pdb: Callstack
+            // => pdb-Dateien auf einem Symbolserver (z.B. im eigenen TFS) hochladen
+            MachEtwasKapput1();
+
+
             Console.ReadKey();
+        }
+
+        private static void MachEtwasKapput1()
+        {
+            MachEtwasKapput_JETZT();
+        }
+
+        private static void MachEtwasKapput_JETZT()
+        {
+            throw new StackOverflowException();
         }
 
         public static int Addieren(int z1,int z2)
