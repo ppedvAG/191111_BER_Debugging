@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -60,23 +61,81 @@ namespace HalloFehlerImTask
             //t5.Wait(); // Warten bis Task5 fertig ist
             #endregion
 
-            Task t1 = Task.Run(() => throw new DivideByZeroException());
-            Task t2 = Task.Run(() => throw new FormatException());
-            Task t3 = Task.Run(() => throw new StackOverflowException());
+            #region Aggregate-Exception
+            //Task t1 = Task.Run(() => throw new DivideByZeroException());
+            //Task t2 = Task.Run(() => throw new FormatException());
+            //Task t3 = Task.Run(() => throw new StackOverflowException());
 
-            try
-            {
-                Task.WaitAll(t1, t2, t3);
-            }
-            catch (AggregateException ex) // Container, der alle Exceptions die "gleichzeitig" passieren können, zusammenfasst
-            {
+            //try
+            //{
+            //    Task.WaitAll(t1, t2, t3);
+            //}
+            //catch (AggregateException ex) // Container, der alle Exceptions die "gleichzeitig" passieren können, zusammenfasst
+            //{
 
-                throw;
+            //    throw;
+            //} 
+            #endregion
+
+
+            int[] durchgänge = { 1_000, 10_000, 50_000, 100_000, 250_000, 500_000, 1_000_000, 5_000_000, 10_000_000 };
+
+            Stopwatch watch = new Stopwatch();
+
+            // Nur dazu da, damit der Compiler schon mal alles erstellt hat
+            ForSchleife(100);
+            ParallelSchleife(100);
+
+            for (int i = 0; i < durchgänge.Length; i++)
+            {
+                Console.WriteLine($"-----------------Durchgang {durchgänge[i]} ---------------------");
+
+                watch.Restart();
+                ForSchleife(durchgänge[i]);
+                watch.Stop();
+                Console.WriteLine($"For: {watch.ElapsedMilliseconds}ms");
+
+                watch.Restart();
+                ParallelSchleife(durchgänge[i]);
+                watch.Stop();
+                Console.WriteLine($"Parallel: {watch.ElapsedMilliseconds}ms");
             }
 
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
         }
+
+
+
+
+
+
+        public static void ForSchleife(int durchgänge)
+        {
+            double[] data = new double[durchgänge];
+            for (int i = 0; i < durchgänge; i++)
+            {
+                data[i] = i % (Math.Abs(i) * Math.E +(Math.Pow(i, 0.3333333333) * Math.Sin(i * 50) - Math.Sqrt(Math.Exp(i + 1))) / Math.Sin(i));
+            }
+        }
+
+        public static void ParallelSchleife(int durchgänge)
+        {
+            double[] data = new double[durchgänge];
+            // Parallel.For(0, durchgänge,new ParallelOptions { MaxDegreeOfParallelism = 4 }, i =>
+            Parallel.For(0, durchgänge, i =>
+            {
+                data[i] = i % (Math.Abs(i) * Math.E + (Math.Pow(i, 0.3333333333) * Math.Sin(i * 50) - Math.Sqrt(Math.Exp(i + 1))) / Math.Sin(i));
+            });
+        }
+
+
+
+
+
+
+
+
 
         private static void TaskMitEinemFehler2()
         {
