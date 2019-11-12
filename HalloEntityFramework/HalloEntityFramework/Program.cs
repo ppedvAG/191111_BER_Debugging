@@ -30,10 +30,21 @@ namespace HalloEntityFramework
             neuerCustomer.CompanyName = "ppedv AG";
             neuerCustomer.CustomerID = "MZ200";
             // Insert:
-            meinModel.Customers.Add(neuerCustomer);
+            // meinModel.Customers.Add(neuerCustomer);
 
             // Speichern (automatisch in einer Transaktion)
-            meinModel.SaveChanges();
+            // meinModel.SaveChanges();
+
+            // Abfragequery ausgeben:
+            Console.WriteLine(meinModel.Customers.Where(x => x.CustomerID == "MZ200"));
+
+            // Komplexes LINQ:
+
+            var query = meinModel.Employees.Where(x => x.HireDate < DateTime.Now)
+                                           .OrderBy(x => x.LastName)
+                                           .Take(5);
+
+            Console.WriteLine(query);
 
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
