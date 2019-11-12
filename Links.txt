@@ -29,3 +29,6 @@ https://dev.to/indy_singh_uk/strings-are-evil-9f9
 
 EF mit Oracle
 https://csharp.today/entity-framework-6-database-first-with-oracle/
+
+LINQ mit VB.NET
+https://docs.microsoft.com/de-de/dotnet/visual-basic/programming-guide/language-features/linq/introduction-to-linq

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HalloEntityFramework.NeuesModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,6 +46,12 @@ namespace HalloEntityFramework
                                            .Take(5);
 
             Console.WriteLine(query);
+
+            // StoredProc von EF DatabaseFirst Designer -> Generiert
+            NorthwindEntities model2 = new NorthwindEntities();
+            var result = model2.GetEmployees(); // StoredProc aufrufen
+
+            
 
             Console.WriteLine("---ENDE---");
             Console.ReadKey();
