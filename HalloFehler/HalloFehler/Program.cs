@@ -11,8 +11,8 @@ namespace HalloFehler
         static void Main(string[] args)
         {
             Console.WriteLine("Bitte geben Sie eine Zahl ein:");
-            int zahl = Convert.ToInt32(Console.ReadLine());
-
+            string eingabe = Console.ReadLine();
+            int zahl = Convert.ToInt32(eingabe);
             Console.WriteLine($"Das doppelte der eingegebenen Zahl ist {zahl * 2}");
 
             Console.WriteLine("---ENDE---");
