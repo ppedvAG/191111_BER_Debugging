@@ -23,3 +23,6 @@ Analysieren von Bluescreens:
 Remote-Debugger:
 1) RemoteTools für die richtige VisualStudio-Installation installieren
 https://visualstudio.microsoft.com/de/downloads/?rr=https%3A%2F%2Fdocs.microsoft.com%2Fde-de
+
+Performance und Strings:
+https://dev.to/indy_singh_uk/strings-are-evil-9f9
