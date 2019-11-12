@@ -12,33 +12,28 @@ namespace HalloPerformanceProfiler
         {
             Console.WriteLine("Personen werden erstellt ...");
 
-            List<Person> allePersonen = new List<Person>();
-            for (int i = 0; i < 10_000_000; i++)
-            {
-                Random r = new Random();
+            List<Person> allePersonen = new List<Person>(10_000_000); // variante 1
+            // Variante 2: gleich ein Array nehmen, wenn die größe bekannt ist
+            Random r = new Random();
 
-                Person p = new Person();
-                p.Vorname = Guid.NewGuid().ToString();
-                p.Nachname = Guid.NewGuid().ToString();
-                p.Alter = (byte)r.Next(0, 255);
-                p.Kontostand = r.Next(Int32.MinValue,Int32.MaxValue);
+            Parallel.For(0, 10_000_000, i =>
+             {
+                 Person p = new Person();
+                 p.Vorname = string.Empty; //Guid.NewGuid().ToString();
+                 p.Nachname = string.Empty; //Guid.NewGuid().ToString();
+                 p.Alter = (byte)r.Next(0, 255);
+                 p.Kontostand = r.Next(Int32.MinValue, Int32.MaxValue);
 
-                allePersonen.Add(p);
-            }
+                 allePersonen.Add(p);
+             });
 
             Console.WriteLine("Alle Personen wurden erstellt ...");
 
             Console.WriteLine("Suche nach der Person mit dem höchsten Kontostand");
 
-            Person aktuellReichstePerson = null;
+            Person aktuellReichstePerson = new Person(); // leeres Struct
             foreach (var item in allePersonen)
             {
-                if(aktuellReichstePerson == null)
-                {
-                    aktuellReichstePerson = item;
-                    continue;
-                }
-
                 if (aktuellReichstePerson.Kontostand < item.Kontostand)
                     aktuellReichstePerson = item;
             }
@@ -50,7 +45,7 @@ namespace HalloPerformanceProfiler
         }
     }
 
-    public class Person
+    public struct Person
     {
         public string Vorname { get; set; }
         public string Nachname { get; set; }
