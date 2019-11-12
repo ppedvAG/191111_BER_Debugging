@@ -26,3 +26,6 @@ https://visualstudio.microsoft.com/de/downloads/?rr=https%3A%2F%2Fdocs.microsoft
 
 Performance und Strings:
 https://dev.to/indy_singh_uk/strings-are-evil-9f9
+
+EF mit Oracle
+https://csharp.today/entity-framework-6-database-first-with-oracle/
